@@ -115,6 +115,7 @@ In most languages (not JavaScript), you need to tell the computer what *type* of
 
   * Static Typing is where the type is bound to a variable. Types are checked at compile time. Java, C++, and C are static typed languages.
   	* In Java, for example</br>
+
     	`String s = "text";`</br>
     	s will be a string forever. We can change "text" to something different or assign it to null, but s will never be an int or a boolean.
   * Dynamic Typing is where the type is bound to the value. Types are checked at run time. JavaScript, PHP, and Python are dynamically typed languages.
@@ -193,4 +194,72 @@ There are two ways to declare an array:
   * Must explicitly call free on this array or you will have a memory leak
   * Here x is a variable, and we have two separate blocks of memory. The variable x is stored in the stack and is just a pointer which stores the memory address to the large block of memory stored on the heap.
 
+## C++
 
+C++ is one of the most popular programming languages out there, particularly because of its efficient performance driven design. It is a C based language and has inherited much of the same syntax as the C programming language. A big difference between C++ and other languages such as Java, Ruby, or PHP is the control it provides over memory management. Most languages take care of this under the hood for you, but by being able to control how memory is allocated is one of the reasons C++ is so powerful. I'll go over just how memory is allocated in later classes.
+
+C++ also provides a more powerful option for creative coding, especially when used with frameworks like Cinder or OpenFrameworks.
+
+## How do you code C++
+
+As you may have guessed, the p5.js editor won't work for C++. There are many options for which IDE, or integrated development environment you use to develop C++ such as XCode or Visual Studio, but for this class we'll be using Visual Studio Code.
+
+## Return Types
+
+As a reminder, C++ is a statically typed language where a type is bound to a variable, so instead of 
+
+`var x = 5;`
+
+like we see in JavaScript, we have
+
+`int x = 5;`
+
+This also applies to our functions. Another major difference between C++ and JavaScript is that functions have **return types**. What does this mean? Let's take a look at a basic JavaScript function:
+
+```
+function addTwo(num) {
+	return num + 2;
+}
+```
+
+Let's say I change the function to cast the return value as a string:
+
+```
+function addTwo(num) {
+	return str(num + 2);
+}
+```
+
+JavaScript doesn't care that you are now returning a string instead of a number, however C++ really cares. Every time you write a function in C++ you **must** specify what kind of data type you are returning. So our function returning an integer would look like:
+
+```
+integer addTwo(integer num) {
+	return num + 2;
+}
+```
+
+And the function returning a string would look like:
+
+```
+string addTwo(integer num) {
+	return std::to_string(num + 2);
+}
+```
+
+Notice I also wrote the datatype *int* before our parameter *num*. That's because in addition to saying what datatype your function is returning you must also declare what datatype your parameters are. If your function doesn't return anything you use the datatype void.
+
+## Writing to the Console
+
+One of the best ways to debug your code is to print something to the console. However, println() is not a valid function is C++, to print to the console we use:
+
+```
+std::cout<<"I'm printing something"<<std::endl;
+```
+
+*cout* means output to the console and *endl* means end of line. *std* is short for standard.
+
+## Data Types
+
+integer, short, and long are examples of primitive data types (as opposed to structured data). One difference between primitive and structured data is that primitives are stored by value not by reference. So if you have a variable of data integer and a value of 5, 5 will be stored to memory. 
+
+When choosing what data type to use, always choose the one that requires the smallest amount of memory, that will increase the processing speed of your program.
