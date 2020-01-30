@@ -1,3 +1,11 @@
+// HOW TO RUN THIS PROGRAM
+// 1) Right click on the file name in the explorer and select 'Open in Terminal'
+// 2) Compile, for Window users type cl myFirstCpp.cpp
+// Mac users type g++ myFirstCpp.cpp
+// 3) Run, for Window users type myFirstCpp
+// Mac users type ./myFirstCpp
+
+
 #include <iostream>
 #include <ctime>
 
