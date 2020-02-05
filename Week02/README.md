@@ -1,4 +1,4 @@
-# Session 2
+# Week 2
 
 ## Expressions
 Most of C++'s operators are either straightforward or something you have already encountered in p5. However the << and >> symbols aren't quite as obvious. Let's look a code snippet.
