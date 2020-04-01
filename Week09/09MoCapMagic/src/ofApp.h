@@ -2,8 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxCsv.h"
-
 #include "Trail.h"
+#include "Particle.h"
 
 class ofApp : public ofBaseApp{
 
@@ -12,21 +12,23 @@ class ofApp : public ofBaseApp{
 		void update();
 		void draw();
 
-		ofxCsv csv;
-		int row;
-		unsigned int numCols;
 
-		float xMin = 10000;
-		float xMax = -10000;
-		float yMin = 100000;
-		float yMax = -10000;
+		ofxCsv csv;
+
+		float xMin;
+		float xMax;
+		float yMin;
+		float yMax;
+
+		int row = 7;
 
 		vector<ofVec2f> positions;
 		vector<ofVec2f> velocities;
 		vector<ofVec2f> accelerations;
-		bool start = true;
 
-		std::vector<Trail*> trails;
+		vector<Trail*> trails;
+
+		vector<Particle*> particles;
 
 		void keyPressed(int key);
 		void keyReleased(int key);
