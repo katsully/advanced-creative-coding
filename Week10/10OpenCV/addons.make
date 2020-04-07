@@ -1,0 +1,3 @@
+ofxOpenCv
+ofxOsc
+ofxSpout
