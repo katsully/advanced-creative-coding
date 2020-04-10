@@ -41,3 +41,11 @@ For the argument, OSC takes:
 ## OSC & Openframeworks
 
 For integrating OSC into your Openframeworks project, you can use the core addon, ofxOsc.
+
+
+
+
+
+# OpenCV
+
+Haar feature-based cascade classifier is an effective object detection method proposed by Paul Viola and Michael Jones in 2001.
