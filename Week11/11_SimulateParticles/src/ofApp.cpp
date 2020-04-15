@@ -11,8 +11,8 @@ void ofApp::setup() {
 	ofEnableSmoothing();
 	ofEnableAlphaBlending();
 
-	particles = new Particle[1000];
-	for (int i = 0; i < 1000; i++) {
+	particles = new Particle[totalParticles];
+	for (int i = 0; i < totalParticles; i++) {
 		particles[i] = Particle(ofPoint(100, ofGetHeight() - 100));
 	}
 }
@@ -21,7 +21,7 @@ void ofApp::setup() {
 void ofApp::draw() {
 	ofBackground(255, 255, 255);
 	ofSetColor(0, 0, 0);
-	for (int i = 0; i < 1000; i++) {
+	for (int i = 0; i < totalParticles; i++) {
 		particles[i].update();
 		particles[i].draw();
 	}

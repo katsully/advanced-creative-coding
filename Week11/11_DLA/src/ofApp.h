@@ -7,7 +7,7 @@ class ofApp : public ofBaseApp{
 
 public:
 	void setup();
-	void go();
+	void update();
 	void draw();
 	void keyPressed(int key);
 
@@ -17,6 +17,8 @@ public:
 
 	int particleCount;
 	Particle* mParticles;
+	
+	// this keeps track of our grid
 	bool* field;
 		
 };

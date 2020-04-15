@@ -26,8 +26,13 @@ Particle::Particle(ofVec2f l) {
 }
 
 void Particle::update() {
+	// currVelocity = previousVelocity + currentAccerlation
 	vel += acc;
+	// location = previousLocation + currVelocity
 	loc += vel;
+
+	// adding to the trail
+	// ofGetFrameNum() % 10 == 0 ---> every 10 frames add to the trail
 	if (ofGetFrameNum() % 10 == 0 && counter < 1000) {
 		hist[counter].x = loc.x;
 		hist[counter].y = loc.y;
@@ -41,11 +46,19 @@ void Particle::draw() {
 	// drawArrowHead(vel, loc, 10);
 	ofNoFill();
 	ofSetColor(0, 0, 0, 100);
+
+	//for (int i = 0; i < counter-1; i++) {
+	//	ofDrawLine(hist[i].x, hist[i].y, hist[i + 1].x, hist[i + 1].y);
+	//	//ofDrawCircle(hist[i].x, hist[i].y, 3);
+	//}
+	//ofDrawCircle(loc.x, loc.y, 3);
+
 	ofBeginShape();
 	for (int i = 0; i < counter; i++) {
 		ofVertex(hist[i].x, hist[i].y);
 	}
 	if (counter > 0) ofVertex(loc.x, loc.y);
+	// true 'closes' the shape, false 'keeps it open'
 	ofEndShape(false);
 }
 

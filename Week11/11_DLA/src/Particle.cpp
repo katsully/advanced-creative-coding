@@ -21,16 +21,21 @@ void Particle::reset() {
 void Particle::update() {
 	if (!stuck) {
 
+		// move the particles!
+		// the random walker approach - implement perlin noise to smooth it out!
 		x += round(ofRandomf());
 		y += round(ofRandomf());
 
+		// if particles go outside the grid, reset!
 		if (x < 0 || y < 0 || x > w || y > h) {
-			this->reset();
+			// this->reset();
 			return;
 		}
 
 		if (!alone()) {
+			// valid position
 			stuck = true;
+			// we are going to 'draw in' the grid, ie the grid square will be black
 			field[y * w + x] = true;
 		}
 	}
@@ -48,6 +53,8 @@ int Particle::round(float _in) {
 
 //--------------------------------------------------------------
 bool Particle::alone() {
+	//looking at neighbors!
+	
 	int cx = x;
 	int cy = y;
 
@@ -65,10 +72,12 @@ bool Particle::alone() {
 	by *= w;
 	ty *= w;
 
+	// looking at if the adjacent spaces are occupied!
 	if (field[cx + ty] || field[lx + cy] || field[rx + cy] || field[cx + by]) {
 		return false;
 	}
 
+	// looking at if the adjacent spaces are occupied!
 	if (field[lx + ty] || field[lx + by] || field[rx + ty] || field[rx + by]) {
 		return false;
 	}
