@@ -2,8 +2,10 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	bool mesh;
-	int limit;
+	bool isRunning;
+	int counter;
+	float decimalNumber;
+	ofVec2f coords;
 	
 	ofFile file;
 
@@ -12,12 +14,15 @@ void ofApp::setup(){
 		ofJson json = ofLoadJson(file);
 		cout << file << endl;
 		
-		if (json["drawMesh"].is_null() == false) mesh = json["drawMesh"];
-		if (json["mFarLimit"].is_null() == false) limit = json["mFarLimit"];
+		if (json["boolVariable"].is_null() == false) isRunning = json["boolVariable"];
+		if (json["intValue"].is_null() == false) counter = json["intValue"];
+		if (json["floatValue"].is_null() == false) decimalNumber = json["floatValue"];
+		if (json["xyCoords"].is_null() == false) coords = ofVec2f(json["xyCoords"]["xPos"], json["xyCoords"]["yPos"]);
 
-		cout << mesh << endl;
-		cout << limit << endl;
-
+		cout << isRunning << endl;
+		cout << counter << endl;
+		cout << decimalNumber << endl;
+		cout << coords << endl;
 
 	}
 
